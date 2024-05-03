@@ -1,0 +1,6 @@
+.venv
+.python-version
+**/__version__.py
+**/__pycache__
+src/*.egg-info/
+testresults

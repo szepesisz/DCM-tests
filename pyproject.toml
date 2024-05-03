@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quadratic_solver"
+version = "0.1.0"
+dynamic = ["dependencies"]
+
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+
+##### TEST #####
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-html",
+]
+
+[tool.pytest.ini_options]
+addopts = '''
+    -v
+    --html testresults/tests.html
+    --junitxml testresults/tests.xml
+    --cov-report xml:testresults/coverage.xml
+    --cov=quadratic_solver
+    --cov-report html:testresults/htmlcov
+    --color=yes
+    '''
+
+log_cli = true
+
+testpaths = [
+    "tests/",
+]
