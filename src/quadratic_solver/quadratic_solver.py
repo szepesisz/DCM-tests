@@ -25,12 +25,12 @@ class QuadraticSolver:
     def equation(self):
         return f'{self.a}*x**2 + {self.b}*x + {self.c} = 0'
 
-    def determinant(self):
+    def discriminant(self):
         d = self.b ** 2 - 4 * self.a * self.c
         return d
 
     def solve(self):
-        d = self.determinant()
+        d = self.discriminant()
         if d < 0:
             raise ValueError('Negative determinant')
         x1 = (-self.b + math.sqrt(d)) / (2 * self.a)
